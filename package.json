@@ -1,0 +1,31 @@
+{
+  "name": "sstaker",
+  "version": "1.0.0",
+  "description": "take screenshots and store at custom directories",
+  "main": "server.js",
+  "dependencies": {
+    "html2canvas": "^1.0.0-rc.7",
+    "iohook": "^0.6.6",
+    "mkdirp": "^1.0.4",
+    "path": "^0.12.7",
+    "screenshot-desktop": "^1.12.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanishkgupta2000/sstaker.git"
+  },
+  "keywords": [
+    "screenshot"
+  ],
+  "author": "kanishk gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kanishkgupta2000/sstaker/issues"
+  },
+  "homepage": "https://github.com/kanishkgupta2000/sstaker#readme"
+}
