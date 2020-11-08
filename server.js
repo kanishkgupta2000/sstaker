@@ -19,7 +19,8 @@ console.log(subFolder + " :subject");
 console.log(session + " : name of session");
 
 ioHook.on("keypress", async (event) => {
-  if (event.shiftKey && event.keychar == 80) {
+  console.log(event)
+  if (event.shiftKey && event.keychar == 13) {
     //shift+P --> to take screenshot
     console.log("Screenshot taken");
     var dirname = "D:/sstaker/"+subFolder;
