@@ -1,25 +1,13 @@
 const ioHook = require("iohook");
 const screenshot = require("screenshot-desktop");
 const fs = require("fs");
-
-
-var subFolder=process.argv[2];
-var session=process.argv[3];
-
-
-if(subFolder==undefined)
-{
-subFolder="ssGeneralBin"
-}
-if(session==undefined)
-{
-session="screenCapture"
-}
-console.log(subFolder + " :subject");
-console.log(session + " : name of session");
+const prompt = require('prompt-sync')();
+const {exec}= require("child_process");
+var subFolder=undefined
+var session=undefined
 
 ioHook.on("keypress", async (event) => {
-  console.log(event)
+
   if (event.shiftKey && event.keychar == 13) {
     //shift+P --> to take screenshot
     console.log("Screenshot taken");
@@ -39,4 +27,45 @@ ioHook.on("keypress", async (event) => {
     ioHook.stop();
 });
 
+
+async function takeInput(){
+  subFolder = prompt('subject name : ');
+  session= prompt("session name : ")
+}
+
+async function startIOHook()
+{
+if(subFolder==undefined)
+{
+subFolder="ssGeneralBin"
+}
+if(session==undefined)
+{
+session="screenCapture"
+}
+var dirname = "D:\sstaker\\"+subFolder;
+
+exec(`start ${dirname}`, (error, stdout, stderr) => {
+  if (error) {
+      console.log(`error: ${error.message}`);
+      return;
+  }
+  if (stderr) {
+      console.log(`stderr: ${stderr}`);
+      return;
+  }
+  console.log(`stdout: ${stdout}`);
+});
 ioHook.start();
+
+}
+async function fn()
+{
+await takeInput()
+await startIOHook()
+}
+
+fn()
+
+
+
